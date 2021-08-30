@@ -6,9 +6,9 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
     /**
      * @OA\Info(
-     *   title="Swagger Shimpment API",
+     *   title="Lunar Fashion - Swagger API",
      *   version="1.0",
-     *   description="The Shipment API Service",
+     *   description="The API Service",
      *   @OA\Contact(
      *     name="Support Team"
      *   )

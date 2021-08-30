@@ -11,7 +11,7 @@ The Shipment Microservice is used to estimate the arrival time of product in Lun
 
 First, clone the repo:
 ```bash
-$ git clone git@github.com:hasib32/rest-api-with-lumen.git
+$ git clone git@github.com:princelonappan/lunar-fashion-project.git
 ```
 ## Running as a Docker container
 

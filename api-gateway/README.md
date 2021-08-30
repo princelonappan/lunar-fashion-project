@@ -1,7 +1,3 @@
-## Preface
-
-API gateway is an important component of microservices architectural pattern – it's a layer that sits in front of all your services. [Read more](http://microservices.io/patterns/apigateway.html)
-
 ## Overview
 
 The API gateway will do the primary validation and send to the request to the coresponding microservice.
@@ -14,7 +10,7 @@ The API gateway will do the primary validation and send to the request to the co
 
 First, clone the repo:
 ```bash
-$ git clone git@github.com:hasib32/rest-api-with-lumen.git
+$ git clone git@github.com:princelonappan/lunar-fashion-project.git
 ```
 ## Running as a Docker container
 
@@ -23,14 +19,13 @@ Both the applications can be run using the docker compose or normal lumen script
 Running API gateway:
 
 ```
-$ cd api-gateway
 $ docker-compose up --build
 ```
 
 ### API Routes
 | HTTP Method	| Path | Action | Parameter | Desciption  |
 | ----- | ----- | ----- | ---- |------------- |
-| GET      | /api/get_lunar_shipment_time | getDeliveryTime | earth_time=2021-08-27 17:22:40 | Lunar Shipment Time
+| GET      | /api/get-shipment-time | getDeliveryTime | earth_time=2021-08-27 17:22:40 | API gateway
 
 ### Output 
 

@@ -12,5 +12,5 @@
 */
 
 $router->group(['prefix' => 'api/'], function () use ($router) {
-    $router->get('get_shipment_time', 'Shipment\ShipmentController@getDeliveryTime');
+    $router->get('get-shipment-time', 'Shipment\ShipmentController@getDeliveryTime');
 });

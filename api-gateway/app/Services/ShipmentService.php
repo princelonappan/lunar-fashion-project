@@ -18,6 +18,6 @@ class ShipmentService
 
     public function getShipmentTime($earth_time)
     {
-        return $this->executeRequest('GET', '/get_lunar_shipment_time', array('earth_time' =>$earth_time));
+        return $this->executeRequest('GET', '/get-lunar-shipment-time', array('earth_time' =>$earth_time));
     }
 }

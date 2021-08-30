@@ -2,6 +2,12 @@
 
 use Carbon\Carbon;
 
+/**
+ * Function to calculate UTC time with estimate time
+ *
+ * @param $earthTime
+ * @return Carbon
+ */
 function calculateArrivalInUTC($earthTime): Carbon
 {
     $start = new \Carbon\Carbon($earthTime);
@@ -11,14 +17,19 @@ function calculateArrivalInUTC($earthTime): Carbon
     return $start->addDays($totalCourierDays);
 }
 
+/**
+ * Function to convert the UTC time to Lunar time
+ * @param $time
+ * @return string
+ */
 function convertUTCToLST($time): string
 {
     $lunarSecond = 0.984352966667; // 1 Lunar second is 0.9843529666671 second on Earth
-    $lunarTotalSeconds = 31104000; // 60 * 60 * 24 * 30 * 12
-    $dayToSeconds = 86400; // 24 * 60 * 60
-    $monthToSeconds = 2592000; // 30 * 24 * 60 * 60
+    $lunarTotalSeconds = 31104000; // Lunar year in lunar seconds (60 * 60 * 24 * 30 * 12)
+    $dayToSeconds = 86400; // (24 * 60 * 60)
+    $monthToSeconds = 2592000; // (30 * 24 * 60 * 60)
     $formatString = config('custom.lunar_time_format');
-    $lunarTimestamp = abs(strtotime('1969-07-21 02:56:15'));
+    $lunarTimestamp = abs(strtotime('1969-07-21 02:56:15')); // Converting lunar calendar starting to timestamp
 
     $start = new \Carbon\Carbon($time);
     $timestamp = $start->timestamp;
@@ -31,5 +42,5 @@ function convertUTCToLST($time): string
     $minutes = floor($lunarTime % (60 * 60) / 60);
     $seconds = floor($lunarTime % (60));
 
-    return $years.'-'.$days.'-'.$cycles. ' ∇  '.$hours.':'.$minutes.':'.$seconds; 
+    return $years.'-'.$days.'-'.$cycles. ' ∇  '.$hours.':'.$minutes.':'.$seconds;
 }

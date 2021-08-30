@@ -11,5 +11,5 @@
 |
 */
 
-$router->get('get_lunar_shipment_time', 'Shipment\ShipmentController@getDeliveryTime');
+$router->get('get-lunar-shipment-time', 'Shipment\ShipmentController@getDeliveryTime');
 

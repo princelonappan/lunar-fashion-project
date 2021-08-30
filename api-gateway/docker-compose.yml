@@ -8,6 +8,6 @@ services:
       - .:/var/www/html
       - /var/www/html/api-gateway/
     build: .
-    command: php -S lumen:8003 -t public
+    command: php -S api-gateway:8003 -t public
 
     restart: always

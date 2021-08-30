@@ -1,23 +1,28 @@
 ## Overview
 
-The Main system is API gateway and the microservice is shipment service. The entry point will be the API gateway when the user calls the API service. API gateway will do the basic validation and then send the request to the shipment microservice for calculating the lunar shipment time.
+The Main system is the API gateway and the microservice is the shipment service. The entry point will be the API gateway when the user calls the API service. API gateway will do the basic validation and then send the request to the shipment microservice for calculating the lunar shipment time.
+
+## Architecture Diagram
+
+![Architecture Diagram](https://raw.githubusercontent.com/princelonappan/lunar-fashion-project/main/flowchart.png)
 
 
 ## Requirements and dependencies
 
 - PHP >= 7.2
 - Lumen 7.0
-- 
+- Swagger
+- Guzzle
 
 ## Features
 
-- Shipment API Service for calculating the estimate delivery time.
+- Shipment Micro Service for calculating the estimate delivery time in LST
 
 ## Installation
 
 First, clone the repo:
 ```bash
-$ git clone git@github.com:hasib32/rest-api-with-lumen.git
+$ git clone git@github.com:princelonappan/lunar-fashion-project.git
 ```
 
 ## Running as a Docker container
@@ -30,7 +35,7 @@ Running API gateway:
 $ cd api-gateway
 $ docker-compose up --build
 ```
-Running API gateway:
+Running Shipment Microservice:
 
 ```
 $ cd shipment-service
@@ -40,11 +45,11 @@ $ docker-compose up --build
 ### API Routes
 | HTTP Method	| Path | Action | Parameter | Desciption  |
 | ----- | ----- | ----- | ---- |------------- |
-| GET      | /api/get_shipment_time | getDeliveryTime | earth_time=2021-08-27 17:22:40 | Lunar Shipment Time
+| GET      | /api/get-shipment-time | getDeliveryTime | earth_time=2021-08-27 17:22:40 | API gateway
 
 ### Output 
 
-You can do basic JSON output mutation using ```output``` property of an action. Eg.
+
 ```php
 {
     "success": 1,
@@ -55,14 +60,8 @@ You can do basic JSON output mutation using ```output``` property of an action. 
 #### Run Swagger
 
 You can access the Swagger API through the following end point. <br />
-```/api/documentation```
+```http://localhost:8003/api/documentation```
 
-```
-$ cd rest-api-with-lumen
-$ php artisan swagger-lume:generate
-$ php artisan swagger-lume:publish
-$ cp -a vendor/swagger-api/swagger-ui/dist public/swagger-ui-assets
-```
 #### Run the Unit Test
 
 ```

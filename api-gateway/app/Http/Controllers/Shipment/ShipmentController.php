@@ -8,7 +8,7 @@ use App\Services\ShipmentService;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
-class shipmentController extends Controller
+class ShipmentController extends Controller
 {
 
     use ApiResponse;
@@ -27,14 +27,13 @@ class shipmentController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/get_shipment_time",
+     *     path="/api/get-shipment-time",
      *     tags={"Shipment API"},
      *     @OA\Parameter(
      *         name="earth_time",
      *         in="query",
-     *         description="The earth_time parameter in path",
-     *         required=true,
-     *
+     *         description="The earth_time parameter in path. Example value - 2021-08-27 17:22:40",
+     *         required=true
      *     ),
      *     @OA\Response(
      *         response="200",
@@ -98,9 +97,9 @@ class shipmentController extends Controller
     public function getDeliveryTime(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'earth_time' => 'required|date_fotmat_validation'
+            'earth_time' => 'required|date_utc_validation'
         ], [
-            'date_fotmat_validation' => 'Please provide the date in the following format. Y-m-d H:i:s',
+            'date_utc_validation' => 'Please provide the date in the following format. Y-m-d H:i:s',
         ]);
 
         if ($validator->fails()) {

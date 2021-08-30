@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('date_fotmat_validation', function ($attribute, $value, $parameters, $validator) {
+        Validator::extend('date_utc_validation', function ($attribute, $value, $parameters, $validator) {
             $inputs = $validator->getData();
             $date = $inputs['earth_time'];
             $format = 'Y-m-d H:i:s';
