@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  api-gateway:
+    ports:
+      - "8003:8003"
+    volumes:
+      - .:/var/www/html
+      - /var/www/html/api-gateway/
+    build: .
+    command: php -S lumen:8003 -t public
+
+    restart: always
