@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  api-gateway:
+    ports:
+      - "8003:8003"
+    volumes:
+      - .:/var/www/html
+      - /var/www/html/api-gateway/
+    expose:
+      - "8003"
+    environment:
+      LUNAR_SHIPMENT_SERVICE_BASE_URL: "http://shipment-service:8005/"
+    build:
+      dockerfile: Dockerfile
+      context: api-gateway/
+    command: php -S api-gateway:8003 -t public
+    restart: always
+  shipment-service:
+    ports:
+      - "8005:8005"
+    volumes:
+      - .:/var/www/html
+      - /var/www/html/shipment-service/
+    expose:
+      - "8005"
+    build:
+      dockerfile: Dockerfile
+      context: shipment-service/
+    command: php -S shipment-service:8005 -t public
+    restart: always

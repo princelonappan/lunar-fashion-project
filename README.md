@@ -27,25 +27,27 @@ $ git clone git@github.com:princelonappan/lunar-fashion-project.git
 
 ## Running as a Docker container
 
-Both the applications can be run using the docker compose or normal lumen script. 
-
-Running API gateway:
+The following docker command will run both the API gateway and Shipment Service API.
 
 ```
-$ cd api-gateway
 $ docker-compose up --build
 ```
-Running Shipment Microservice:
 
-```
-$ cd shipment-service
-$ docker-compose up --build
-```
 
 ### API Routes
 | HTTP Method	| Path | Action | Parameter | Desciption  |
 | ----- | ----- | ----- | ---- |------------- |
 | GET      | /api/get-shipment-time | getDeliveryTime | earth_time=2021-08-27 17:22:40 | API gateway
+
+
+### API Curl Request
+
+```
+ curl -X GET \
+  'http://localhost:8003/api/get-shipment-time?earth_time=2021-08-27%2017%3A22%3A40' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json'
+```
 
 ### Output 
 

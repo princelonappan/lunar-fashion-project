@@ -20,7 +20,6 @@ Both the applications can be run using the docker compose or normal lumen script
 Running Shipment Microservice:
 
 ```
-$ cd shipment-service
 $ docker-compose up --build
 ```
 
